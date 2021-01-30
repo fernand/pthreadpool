@@ -41,6 +41,7 @@ cc_library(
         ":emscripten": INTERNAL_HDRS + SHIM_IMPL_SRCS,
         ":macos_x86": INTERNAL_HDRS + GCD_IMPL_SRCS,
         ":macos_x86_64": INTERNAL_HDRS + GCD_IMPL_SRCS,
+        ":macos_arm64": INTERNAL_HDRS + GCD_IMPL_SRCS,
         ":ios": INTERNAL_HDRS + GCD_IMPL_SRCS,
         ":watchos": INTERNAL_HDRS + GCD_IMPL_SRCS,
         ":tvos": INTERNAL_HDRS + GCD_IMPL_SRCS,
@@ -316,6 +317,14 @@ config_setting(
     values = {
         "apple_platform_type": "macos",
         "cpu": "darwin_x86_64",
+    },
+)
+
+config_setting(
+    name = "macos_arm64",
+    values = {
+        "apple_platform_type": "macos",
+        "cpu": "darwin_arm64",
     },
 )
 
